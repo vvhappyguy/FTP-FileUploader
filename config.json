@@ -1,0 +1,17 @@
+[
+{
+    "host" : "hst",
+    "username" : "usr",
+    "password" : "pswd",
+    "files" :[
+        {
+            "input_dest" : " first in",
+            "output_dest" : " first out"
+        },
+        {
+            "input_dest" : " second in",
+            "output_dest" : " second out"
+        }
+    ]
+}
+]
