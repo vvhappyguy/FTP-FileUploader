@@ -31,4 +31,6 @@ if __name__ == '__main__':
             ftp_upload(ftp, parser.files[_]['file_input'], parser.files[_]
                        ['file_output'], ftype=parser.files[_]['file_extention'])
 
+        #data = ftp.retrlines('LIST')
+        # print(data)
         ftp.quit()
