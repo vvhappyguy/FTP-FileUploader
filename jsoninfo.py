@@ -41,6 +41,8 @@ class JsonInfo():
                 print("Using default value for password.")
             try:
                 self.port = pop_dict['port']
+                if (self.port == "") or (self.port == " "):
+                    self.port = "21"
             except KeyError:
                 print("Using default value for port.")
             if self.state:
@@ -59,10 +61,14 @@ class JsonInfo():
     def unique_list(self):
         """Fucntion for removing repeating elements in file list"""
         if self.state:
+            c1, c2 = 0, 0
             for i in self.files:
+                c1 += 1
                 for j in self.files:
-                    if (i == j):
+                    c2 += 1
+                    if (i == j) and (c2 != c1):
                         self.files.pop()
+                c2 = 0
 
     def connection_info(self):
         """Printing Connection Info function"""
@@ -78,3 +84,4 @@ class JsonInfo():
             print("\nFiles(" + str(len(self.files)) + ") INFO:")
             for _ in range(len(self.files)):
                 print(self.files[_])
+            print("\n")

@@ -1,17 +1,22 @@
 [
-{
-    "host" : "hst",
-    "username" : "usr",
-    "password" : "pswd",
-    "files" :[
-        {
-            "input_dest" : " first in",
-            "output_dest" : " first out"
-        },
-        {
-            "input_dest" : " second in",
-            "output_dest" : " second out"
-        }
-    ]
-}
+    {
+        "host": "31.220.16.129",
+        "username": "u650567315",
+        "password": "tLDAyH8JsV9u",
+        "port":"",
+        "files": [
+            {
+                "input_dest": "config.json",
+                "output_dest": "config123.json"
+            },
+            {
+                "input_dest": "config.json",
+                "output_dest": "config22.json"
+            },
+            {
+                "input_dest": "config.json",
+                "output_dest": "config21.json"
+            }
+        ]
+    }
 ]
