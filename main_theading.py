@@ -37,7 +37,7 @@ def ftp_upload(ftp_obj, in_path, out_path, ftype):
 if __name__ == "__main__":
     parser = JsonInfo()
     parser.connection_info()
-    #parser.unique_list()
+    parser.unique_list()
     parser.files_info()
 
     if parser.state:
