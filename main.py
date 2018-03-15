@@ -4,10 +4,10 @@ import ftplib
 
 def ftp_upload(ftp_obj, in_path, out_path, ftype='TXT'):
     """
-    Функция для загрузки файлов на FTP-сервер
-    @param ftp_obj: Объект протокола передачи файлов
-    @param in_path: Путь к файлу Input
-    @param out_path: Путь к файлу Output
+    Function for uploading files to FTP-server
+    @param ftp_obj: FTP-object protocol 
+    @param in_path: Destination file (from)
+    @param out_path: Destination file (to)
     """
 
     if ftype == 'TXT':
@@ -21,14 +21,14 @@ def ftp_upload(ftp_obj, in_path, out_path, ftype='TXT'):
 if __name__ == '__main__':
     parser = JsonInfo()
     parser.connection_info()
+    parser.unique_list()
     parser.files_info()
+    if parser.state:
+        ftp = ftplib.FTP(host=parser.host, user=parser.username,
+                         passwd=parser.password, acct=parser.port)
 
-    ftp = ftplib.FTP(parser.host)
-    ftp.login(parser.username, parser.password)
+        for _ in range(len(parser.files)):
+            ftp_upload(ftp, parser.files[_]['file_input'], parser.files[_]
+                       ['file_output'], ftype=parser.files[_]['file_extention'])
 
-    for _ in range(len(parser.files)):
-        ftp_upload(ftp, parser.files[_]['file_input'],parser.files[_]['file_output'],ftype='JSON')
-
-    data = ftp.retrlines('LIST')
-    print(data)
-    ftp.quit()
+        ftp.quit()
